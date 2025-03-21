@@ -20,7 +20,11 @@ v0.1.0
 
 `cargo run`
 
-Your bucket will be accessible via [http://0.0.0.0:1111/index](http://0.0.0.0:1111/index). It will also be accessible by any device connected to your local network at whatever your device's local IP is. *(Use crtl+c to quit serving.)*
+Your bucket will be accessible via [http://localhost:1111/index](http://0.0.0.0:1111/index). It will also be accessible by any device connected to your local network at whatever your device's local IP is. *(Use crtl+c to quit serving.)*
+
+## Customizing your bucket
+
+*Instructions for editing your bucket appearance coming soon*
 
 ---
 # Credits & Acknowledgements 
