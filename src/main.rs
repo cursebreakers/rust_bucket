@@ -11,7 +11,7 @@ use axum::response::{Html, IntoResponse};
 use tokio::net::TcpListener;
 use tracing::{info, error};
 use tracing_subscriber;
-
+use local_ip_address;
 
 const DEFAULT_PORT: u16 = 1111;
 
@@ -19,30 +19,65 @@ const DEFAULT_PORT: u16 = 1111;
 #[tokio::main]
 async fn main() {
     tracing_subscriber::fmt::init();
-    info!("Initializing server console...");
+	println!();
+    info!("Initializing server...");
+	println!();
+
+	println!("Checking environment...");
+
+	// check for an env var and if none, use default
+    if let Ok(_) = env::var("PORT") {
+    	println!("Found .env file, using custom PORT value.");
+    } else {
+      	println!("No .env file found, using default PORT: {}", DEFAULT_PORT);
+    }
+
+	let local_ip = match local_ip_address::local_ip() {
+        Ok(ip) => ip,
+
+        Err(e) => {
+            error!("Failed to get local IP address: {}", e);
+            return;
+        }
+    };
+	println!("Local ip is {0}", local_ip);
+
+	println!("Setting up address & port...");
 
     let port = env::var("PORT").unwrap_or_else(|_| DEFAULT_PORT.to_string()).parse::<u16>().unwrap_or(DEFAULT_PORT);
-	println!();
-	println!("Setting address & port...");
+
+
     let addr = SocketAddr::from(([0, 0, 0, 0], port));
 
+	println!("{0} open at {1}", port, local_ip);
+
 	println!("Configuring routes...");
+	println!("Adding route for /index...");
+	println!("Adding static file handler for /");
+
     let app = Router::new()
 	    .route("/index", get(serve_index))
 		.nest_service("/", get_service(ServeDir::new("bucket")));
 
-    println!("Creating bucket...");
+	println!("Services routed.");
 	println!();
+    info!("Mapping bucket...");
+	println!();
+
     let bucket_path = env::current_dir().unwrap().join("bucket");
     print_tree(&bucket_path, "", &bucket_path); 
+
 	println!();
-    println!("Bucket created.");
-	println!();
+    info!("Done.");
+
     // Create a TCP listener that binds to the given address (addr)
     let listener = TcpListener::bind(addr).await.unwrap(); 
     // Serve the application using Axum's `serve` function, logging any errors
-    info!("Server (Axum) listening @ http://{}", addr);
-    info!("Index ready @ http://{}/index", addr);
+	println!();
+    println!("    Server (Axum) listening @ http://{}", addr);
+	println!();
+    println!("    Index ready @ http://{0}:{1}/index", local_ip, port);
+	println!();
     if let Err(e) = axum::serve(listener, app.into_make_service()).await {
         error!("Server error: {}", e);
     }
