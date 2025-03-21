@@ -1,8 +1,8 @@
-# Rust Bucket | REAMDE.md
+# Rust Bucket | README.md
 
-*v0.1.0*
+v0.1.0
 
-A simple file server using Rust.
+*A simple file server using Rust.*
 
 ---
 
