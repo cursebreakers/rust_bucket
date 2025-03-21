@@ -1,0 +1,126 @@
+
+:root {
+  --vanilla: #f1e8b8ff;
+  --flax: #f9e784ff;
+  --atomic-tangerine: #e58f65ff;
+  --indian-red: #d05353ff;
+  --eerie-black: #191919ff;
+  --chinese-violet: #856088ff;
+
+  --gradient-top: linear-gradient(0deg, var(--vanilla), var(--flax), var(--atomic-tangerine), var(--indian-red), var(--eerie-black));
+  --gradient-right: linear-gradient(90deg, var(--vanilla), var(--flax), var(--atomic-tangerine), var(--indian-red), var(--eerie-black));
+}
+
+
+/* Global styling for all elements */
+* {
+  font-family: monospace;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styling with a warm rust background */
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  background-color: var(--eerie-black);  /* Eerie Black */
+  color: var(--vanilla);  /* Vanilla */
+}
+
+a {
+  color: var(--eerie-black);
+}
+
+/* Container for the bucket section */
+#bucket {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  padding: 12px;
+  background-color: var(--flax);  /* Flax */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* Subtle shadow for separation */
+}
+
+/* Styling for the bucket header */
+#bucketHead {
+  font-size: 24px;
+  color: var(--vanilla);
+  margin-bottom: 12px;
+}
+
+/* Styling for the file/folder list */
+#bucketList {
+  padding: 8px;
+  list-style-type: none;
+  font-size: 16px;
+  color: var(--eerie-black);  /* Eerie Black (changed for contrast) */
+}
+
+/* Add tree-like indentation for list items */
+#bucketList li {
+  padding-left: 20px;
+  position: relative;
+  margin-left: 10px;
+  list-style-type: none;
+}
+
+/* Folder styling (subdirectories) */
+#bucketList li h3 {
+  color: var(--eerie-black); 
+  font-size: 18px;
+  margin: 5px 0;
+  padding-left: 10px;
+  border-left: 2px solid var(--atomic-tangerine); 
+}
+
+/* File link styling */
+#bucketList li a {
+  color: var(--eerie-black);  /* Eerie Black */
+  text-decoration: none;
+  font-size: 16px;
+  display: block;
+  padding: 4px 0;
+  transition: color 0.3s ease;
+}
+
+/* Hover effect for file links */
+#bucketList li a:hover {
+  color: var(--flax);
+}
+
+/* Footer styling */
+footer {
+  padding: 8px;
+  background-color: var(--indian-red);  /* Indian Red */
+  color: var(--eerie-black); 
+  text-align: center;
+}
+
+#tagline {
+  font-size: 16px;
+  color: var(--eerie-black); 
+}
+
+/* Adding a subtle gradient background to sections for more depth */
+#bucket {
+  background: linear-gradient(135deg, var(--indian-red), var(--flax));  /* Indian Red to Flax gradient */
+}
+
+/* Adding gradient effects for links */
+#bucketList li a:focus, #bucketList li a:active {
+  background: linear-gradient(90deg, var(--flax), var(--atomic-tangerine));  /* Flax to Atomic Tangerine gradient */
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+/* Footer with gradient to match the warm color scheme */
+footer {
+  background: linear-gradient(180deg, var(--indian-red), var(--flax));
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+

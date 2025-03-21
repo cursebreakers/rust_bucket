@@ -27,9 +27,9 @@ async fn main() {
 
 	// check for an env var and if none, use default
     if let Ok(_) = env::var("PORT") {
-    	println!("Found .env file, using custom PORT value.");
+    	println!("Found PORT found in .env, using custom  value.");
     } else {
-      	println!("No .env file found, using default PORT: {}", DEFAULT_PORT);
+      	println!("No PORT found in .env, using default PORT: {}", DEFAULT_PORT);
     }
 
 	let local_ip = match local_ip_address::local_ip() {
@@ -46,20 +46,19 @@ async fn main() {
 
     let port = env::var("PORT").unwrap_or_else(|_| DEFAULT_PORT.to_string()).parse::<u16>().unwrap_or(DEFAULT_PORT);
 
-
     let addr = SocketAddr::from(([0, 0, 0, 0], port));
 
-	println!("{0} open at {1}", port, local_ip);
+	println!("{0} is now open at {1}", port, local_ip);
 
 	println!("Configuring routes...");
-	println!("Adding route for /index...");
-	println!("Adding static file handler for /");
 
     let app = Router::new()
 	    .route("/index", get(serve_index))
 		.nest_service("/", get_service(ServeDir::new("bucket")));
 
-	println!("Services routed.");
+	println!("Route added  for /index...");
+	println!("Static file handler added for /");
+	println!("Routes Configured.");
 	println!();
     info!("Mapping bucket...");
 	println!();
@@ -68,7 +67,7 @@ async fn main() {
     print_tree(&bucket_path, "", &bucket_path); 
 
 	println!();
-    info!("Done.");
+    info!("Bucket ready.");
 
     // Create a TCP listener that binds to the given address (addr)
     let listener = TcpListener::bind(addr).await.unwrap(); 
@@ -76,7 +75,7 @@ async fn main() {
 	println!();
     println!("    Server (Axum) listening @ http://{}", addr);
 	println!();
-    println!("    Index ready @ http://{0}:{1}/index", local_ip, port);
+    println!("    Index created: http://{0}:{1}/index", local_ip, port);
 	println!();
     if let Err(e) = axum::serve(listener, app.into_make_service()).await {
         error!("Server error: {}", e);
@@ -110,9 +109,9 @@ fn print_tree(path: &Path, prefix: &str, base: &Path) {
 async fn serve_index() -> impl IntoResponse {
     let bucket_path = env::current_dir().unwrap().join("bucket");
 
-    // Regenerate the index.html if necessary
-    if let Err(e) = make_index::generate_index_html(bucket_path.to_str().unwrap()) {
-        error!("Error generating index.html: {}", e);
+    // Update the index.html if necessary
+    if let Err(e) = make_index::update_index_html(bucket_path.to_str().unwrap()) {
+        error!("Error generating index: {}", e);
         return Html("<h1>Error generating file list</h1>").into_response();
     }
 

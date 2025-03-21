@@ -4,14 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rust Bucket</title>
+	<!-- Add your own custom "style.css" file to the root of your bucket -->
+    <link rel="stylesheet" href="/style.css" onerror="this.disabled=true;">
   </head>
   <body>
-    <h1>Bucket:</h1>
-    <nav>
-      <ul id="bucketList">
-        <ul><li><a href="/README.md">README.md</a></li></ul><ul><li><a href="/index.html">index.html</a></li></ul><h3>test/</h3><ul><li><a href="/test/test.md">test.md</a></li></ul><h3>test_subdir/</h3><ul><li><a href="/test/test_subdir/test1.md">test1.md</a></li></ul>
-      </ul>
-    </nav>
-    <footer>Rust Bucket File Server by Cursebreakers LLC, 2025</footer>
+    <section id="bucket">
+	<!-- 
+		 WARNING: Do not edit within this section. It is dynamically populated by
+		 the backend, so any manual changes may be overwritten or even break your 
+		 page the next time the bucket is mapped by the server. 
+	-->
+      <h1 id="bucketHead">Bucket:</h1>
+      <nav id="bucketList"><ul><li><a href="/index.html">index.html</a></li><li><a href="/style.css">style.css</a></li><li><h3>hello/</h3><ul><li><a href="/hello/hello.md">hello.md</a></li></ul></li></ul></nav>
+	<!-- 
+		 WARNING: Do not edit within this section. It is dynamically populated by
+		 the backend, so any manual changes may be overwritten or even break your 
+		 page the next time the bucket is mapped by the server. 
+	-->
+    </section>
+    <footer>
+    <!-- Edit our tagline and make your own custom footer -->
+	  <p id="tagline"><a href="https://github.com/cursebreakers/rust_bucket">Rust Bucket File Server</a> by <a href="https://cursebreakers.net">Cursebreakers LLC</a></p>
+	</footer>
   </body>
 </html>
