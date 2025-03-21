@@ -8,19 +8,19 @@ v0.1.0
 
 ## Get started
 
-Clone the repo:
+1. Clone the repo:
 
 `git clone https://github.com/cursebreakers/rust_bucket.git`
 
-Add files to the bucket folder:
+2. Add files to the bucket folder:
 
-`mkdir -p bucket/hello && touch bucket/hello/hello.md && echo "# Hello, World!" > bucket/hello/hello.md`
+`cd rust_bucket && mkdir -p bucket/hello && touch bucket/hello/hello.md && echo "# Hello, World!" > bucket/hello/hello.md`
 
-Compile and run w/cargo:
+3. Compile and run w/cargo:
 
-`cd rust_bucket && cargo run`
+`cargo run`
 
-Your bucket will be accessible via [http://0.0.0.0:1111/index](http://0.0.0.0:1111/index). *(Use crtl+c to quit serving.)*
+Your bucket will be accessible via [http://0.0.0.0:1111/index](http://0.0.0.0:1111/index). It will also be accessible by any device connected to your local network at whatever your device's local IP is. *(Use crtl+c to quit serving.)*
 
 ---
 # Credits & Acknowledgements 
