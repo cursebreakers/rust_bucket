@@ -20,7 +20,7 @@ v0.1.0
 
 *Example:* `cd rust_bucket && mkdir -p bucket/hello && touch bucket/hello/hello.md && echo "# Hello, World!" > bucket/hello/hello.md`
 
-*FILESIZE WARNING: Explicit memory and storage size safety and rate liimting have not yet been developed and/or tested. I am not responsible for you maxing out your hardware limits or your VPS account by going crazy with the file sizes. Since this app currently stores files directly in the app container, only small files are recomended at this time. Future iterations will address this issue.*
+*FILESIZE WARNING: Explicit memory/storage safety and rate limiting have not yet been developed and/or tested. I am not responsible for you maxing out your hardware limits or your VPS account by going crazy with the file sizes. Since this app currently stores files directly in the app container, only small files are recomended at this time. Future iterations will address this issue.*
 
 *PRIVACY & SECURITY NOTE: This app exposes a port to your local network, and if deployed to an external web address like with a VPS, it can then be open to the world. For this reason, I recommend using wisdom and discretion when deciding on what types of files to include in your bucket. It is also recommended to stay up to date with network security and protocols to ensure that your self-hosting solution is safe.*
 
