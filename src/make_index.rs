@@ -45,8 +45,8 @@ pub fn update_index_html(bucket_path: &str) -> io::Result<()> {
                     html_content.push_str(&format!(
                         "<li class='bucketLink'>
                             <a class='leftLink' href=\"/{0}\" target=\"_blank\">└── {1}</a>
-                            <a class='downLink' href=\"/{0}\" download=\"{1}\">⬇️ Download</a>
-                            <a class='copyLink' href=\"{0}\" onclick=\"copyToClipboard('{0}')\">🔗 Link</a>
+                            <a class='downLink' href=\"/{0}\" download=\"{1}\"> Download ⬇️</a>
+                            <a class='copyLink' href=\"{0}\" onclick=\"copyToClipboard('{0}')\"> Link 🔗</a>
 
                         </li>",
                         relative_path.display(),
