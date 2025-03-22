@@ -109,13 +109,15 @@ The make_style.rs file (not ready yet) will control stylesheet generation, allow
 - The bucket contents are scanned and mapped by make_index.rs each time the index is requested from the server. 
 - This process injects and overrides any content within the bucket elements in the index.html file, and displays the file tree in the server console.
 
-- Port assignment defaults to 1111. You may create a .env file with the PORT variable to override this default.
-
 - The bucket folder will contain an **index.html** and a linked **style.css** file by default. These templates are manipulated and regenerated (if necessary) by their make files in the **src** folder.
 
 - Cloning a bucket clones that particular bucket's layout and styles, and may also contain files or folders from the person it was cloned from, unless those files were held back by the bucket owner (like with git ignore). 
 
 - For example, if you cloned your bucket directly from me, you would have a *hello* folder and a *gifs* folder as well as a sweet rusty sunset stylesheet (feel free to edit/delete or keep these as you wish. Consider it a welcome gift).
+
+### Port configuration with .env
+
+- Port assignment defaults to 1111. You may create a .env file with the PORT variable to override this default.
 
 ### Philosophy
 
