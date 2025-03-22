@@ -159,6 +159,11 @@ This is the planning section. These features are (99% likely) not yet implemente
 - Build a bucket by connecting a git repo
 - OAuth via GitHub?
 
+**Docker Integration**
+- Docker install/setup instructions
+- Build a bucket with a docker container
+- OAuth via Docker?
+
 **GUI**
 - Client engine/logic using Rust & WASM only (no javascript, if possible)
 - Let users add or remove bucket files using client GUI
