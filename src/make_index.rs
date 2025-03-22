@@ -3,7 +3,6 @@
 use std::fs::{self, File};
 use std::io::{self, Write, Read};
 use std::path::Path;
-
 /// Generates an index.html file with the list of files and directories in the bucket folder
 pub fn update_index_html(bucket_path: &str) -> io::Result<()> {
     let bucket = Path::new(bucket_path);
@@ -26,29 +25,36 @@ pub fn update_index_html(bucket_path: &str) -> io::Result<()> {
         let mut html_content = String::new();
         let mut has_subdirectories = false;
 
-        // Add files as links
-        for entry in entries.iter().filter(|entry| entry.path().is_file()) {
-            let file_name = entry.file_name().to_string_lossy().into_owned();
-            match entry.path().strip_prefix(bucket) {
-                Ok(relative_path) => {
-                    html_content.push_str(&format!(
-                        "<li><a href=\"/{0}\">{1}</a></li>",
-                        relative_path.display(),
-                        file_name
-                    ));
-                }
-                Err(_) => {}
-            }
-        }
+        let all_entries: Vec<_> = entries.into_iter().collect();
 
-        // Add directories as headers
-        for entry in entries.iter().filter(|entry| entry.path().is_dir()) {
+		// Process directories first
+        for entry in all_entries.iter().filter(|entry| entry.path().is_dir()) {
             let dir_name = entry.file_name().to_string_lossy().into_owned();
             html_content.push_str(&format!("<li><h3>{0}/</h3><ul>", dir_name));
             let dir_path = entry.path();
             html_content.push_str(&process_dir(&dir_path, depth + 1, bucket)?);
             html_content.push_str("</ul></li>");
             has_subdirectories = true;
+        }
+
+        // Then process files
+        for entry in all_entries.iter().filter(|entry| entry.path().is_file()) {
+            let file_name = entry.file_name().to_string_lossy().into_owned();
+            match entry.path().strip_prefix(bucket) {
+                Ok(relative_path) => {
+                    html_content.push_str(&format!(
+                        "<li class='bucketLink'>
+                            <a class='leftLink' href=\"/{0}\" target=\"_blank\">└── {1}</a>
+                            <a class='downLink' href=\"/{0}\" download=\"{1}\">⬇️ Download</a>
+                            <a class='copyLink' href=\"{0}\" onclick=\"copyToClipboard('{0}')\">🔗 Link</a>
+
+                        </li>",
+                        relative_path.display(),
+                        file_name
+                    ));
+                }
+                Err(_) => {}
+            }
         }
 
         // If there are subdirectories, wrap the content in a <ul> for better structure

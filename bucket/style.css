@@ -48,7 +48,7 @@ a {
 /* Styling for the bucket header */
 #bucketHead {
   font-size: 24px;
-  color: var(--vanilla);
+  color: var(--eerie-black);
   margin-bottom: 12px;
 }
 
@@ -74,22 +74,42 @@ a {
   font-size: 18px;
   margin: 5px 0;
   padding-left: 10px;
-  border-left: 2px solid var(--atomic-tangerine); 
+  border-left: 2px solid var(--atomic-tangerine);
 }
 
 /* File link styling */
 #bucketList li a {
-  color: var(--eerie-black);  /* Eerie Black */
+  flex: 1 1 auto;
+  color: var(--eerie-black);
   text-decoration: none;
   font-size: 16px;
   display: block;
-  padding: 4px 0;
+  padding: 8px 0;
   transition: color 0.3s ease;
 }
 
 /* Hover effect for file links */
 #bucketList li a:hover {
   color: var(--flax);
+  border-bottom: 1px solid var(--flax);
+}
+
+.bucketLink {
+  display: flex;
+  border-bottom: 1px solid var(--indian-red);
+  background: none;
+}
+
+.leftLink {
+  justify-self: flex-start;
+}
+
+.downLink {
+  justify-self: baseline;
+}
+
+.copyLink {
+  justify-self: flex-end;
 }
 
 /* Footer styling */

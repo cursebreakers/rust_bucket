@@ -59,15 +59,6 @@ async fn main() {
 	println!("Route added  for /index...");
 	println!("Static file handler added for /");
 	println!("Routes Configured.");
-	println!();
-    info!("Mapping bucket...");
-	println!();
-
-    let bucket_path = env::current_dir().unwrap().join("bucket");
-    print_tree(&bucket_path, "", &bucket_path); 
-
-	println!();
-    info!("Bucket ready.");
 
     // Create a TCP listener that binds to the given address (addr)
     let listener = TcpListener::bind(addr).await.unwrap(); 
@@ -107,7 +98,11 @@ fn print_tree(path: &Path, prefix: &str, base: &Path) {
 
 // Creates, updates ad serves an index.html by reading the files in bucket
 async fn serve_index() -> impl IntoResponse {
+    info!("Mapping bucket...");
+	println!();
+
     let bucket_path = env::current_dir().unwrap().join("bucket");
+    print_tree(&bucket_path, "", &bucket_path); 
 
     // Update the index.html if necessary
     if let Err(e) = make_index::update_index_html(bucket_path.to_str().unwrap()) {
@@ -115,8 +110,14 @@ async fn serve_index() -> impl IntoResponse {
         return Html("<h1>Error generating file list</h1>").into_response();
     }
 
+    println!("Index update complete.");
+	println!();
+
     // Serve the generated index.html
     let index_html_path = bucket_path.join("index.html");
+
+    info!("Bucket ready.");
+	println!();
     if let Ok(contents) = fs::read_to_string(index_html_path) {
         Html(contents).into_response()
     } else {

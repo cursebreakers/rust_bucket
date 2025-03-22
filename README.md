@@ -22,9 +22,52 @@ v0.1.0
 
 Your bucket will be accessible via [http://localhost:1111/index](http://0.0.0.0:1111/index). It will also be accessible by any device connected to your local network at whatever your device's local IP is. *(Use crtl+c to quit serving.)*
 
-## Customizing your bucket
+## File Sharing
 
-*Instructions for editing your bucket appearance coming soon*
+By when hosting your bucket you can share files to anyone with access to the bucket's address.
+
+*Link to "hosting the rust bucket server"*
+
+**Download a file or directory**
+
+**Share a link to a file or directory**
+
+## Styling your bucket
+
+You can customize the appearance of your bucket by editing the index.html and style.css files in the bucket root. 
+
+NOTE: If you wreck your templates beyond repair, you will likely need to redownload them and replace them from the parent repo, or you can use them as a reference to find your way back.
+
+---
+# WORKING
+
+# NEXT:
+
+## Future:
+
+**Share & Download Links**
+- Share link opens device's share options or panel to copy link, etc
+- Download links for folders and entire buckets (git clone?)
+
+**User Accounts**
+- email + password auth, OAuth?
+- API Keys for microservices and integrations
+
+**UI**
+- Control User & Page Variables
+- Gallery mode
+- folder sync/file upload menu
+- Docs/Wiki folder w/ Markdown rendering/editing
+
+**Git Integration**
+- build a bucket from by connecting a git repo
+- OAuth via GitHub?
+
+**Coolors.io integration**
+- for randomzing/customizing style palettes (using scss files?)
+
+**Remote Hosting**
+- Deploy a bucket on Cursebreakers LLC Infrastructure
 
 ---
 # Credits & Acknowledgements 
