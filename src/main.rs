@@ -9,7 +9,7 @@ use std::path::{Path};
 use tower_http::services::ServeDir;
 use axum::response::{Html, IntoResponse};
 use tokio::net::TcpListener;
-use tracing::{info, error};
+use tracing::{info, warn, error};
 use tracing_subscriber;
 use local_ip_address;
 
@@ -48,7 +48,7 @@ async fn main() {
 
     let addr = SocketAddr::from(([0, 0, 0, 0], port));
 
-	println!("{0} is now open at {1}", port, local_ip);
+	warn!("Port {0} now open at {1}", port, local_ip);
 
 	println!("Configuring routes...");
 
@@ -71,7 +71,7 @@ async fn main() {
 	println!();
     println!("    Server (Axum) listening @ http://{}", addr);
 	println!();
-    println!("    Index created: http://{0}:{1}/index", local_ip, port);
+    println!("    Index: http://localhost:{1}/index,\n    LAN:   http://{0}:{1}/index", local_ip, port);
 	println!();
     if let Err(e) = axum::serve(listener, app.into_make_service()).await {
         error!("Server error: {}", e);

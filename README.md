@@ -148,9 +148,9 @@ Program variables and controls: (command flags or runtime menu options?)
   - with infrastructure/back-end?
 - Who/What/when/where/why/how to provision accounts, controls, privelleges and boundaries?
 - Securing the buckets:
-  - Creating private/public bucket options
-  - HTTPS/TLS/HSTS to encrypt packets/traffic to and from a bucket
-  - CORS?
+  - Firewall rules to limit public access (ufw, iptables)?
+  - Reverse proxy (e.g., Nginx, Cloudflare) to handle public traffic securely?
+  - TLS/SSL (Let's Encrypt or Cloudflare) for HTTPS?
 
 ## FUTURE:
 
