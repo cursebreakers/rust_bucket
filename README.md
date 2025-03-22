@@ -131,20 +131,31 @@ This is the planning section. These features are (99% likely) not yet implemente
   - using curl and wget, etc
   - how does this relate/differ to git? Could some form of git implementation handle this better?
 
-**Recursion Depth Control**
-- Pass a variable to limit or expand the recursion depth of the bucket index
+**Robust Console Controls**
 
-**Security & User Safety**
-- How to secure the buckets?
+Program variables and controls: (command flags or runtime menu options?)
+- env config:
+  - set PORT
+  - set recursion depth
+- man pages
+
+**Recursion Depth Control**
+- Create a variable to limit or expand the recursion depth of the bucket index
+
+**User Safety & Security**
+- What aspects of a bucket and its data or implementations are especially sensitive or insecure?
+  - with clients/front-end?
+  - with infrastructure/back-end?
+- Who/What/when/where/why/how to provision accounts, controls, privelleges and boundaries?
+- Securing the buckets:
   - Creating private/public bucket options
-  - HTTPS/TLS/HSTS to encrypt packets/traffic to and from bucket
+  - HTTPS/TLS/HSTS to encrypt packets/traffic to and from a bucket
   - CORS?
-- How and why/when/where to provision accounts and privelleges?
 
 ## FUTURE:
 
 **Application Databases**
-- To store and control network data, variables, structures, logic, etc
+- To store and control network data and structures, variables, logic, userbase, etc
 
 **User Accounts**
 - email/username + password auth, OAuth via GitHub?
