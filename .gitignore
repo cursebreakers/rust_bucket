@@ -16,4 +16,14 @@ target/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
+# Custom Bucket Ignores:
+# Add or remove to control 
+# what is held back from your 
+# bucket source on git.
+#
+# Ignore .env file
+.env
+
+
+
 

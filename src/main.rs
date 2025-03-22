@@ -42,7 +42,7 @@ async fn main() {
     };
 	println!("Local ip is {0}", local_ip);
 
-	println!("Setting up address & port...");
+	println!("Assigning address and port...");
 
     let port = env::var("PORT").unwrap_or_else(|_| DEFAULT_PORT.to_string()).parse::<u16>().unwrap_or(DEFAULT_PORT);
 
@@ -58,11 +58,16 @@ async fn main() {
 
 	println!("Route added  for /index...");
 	println!("Static file handler added for /");
+
 	println!("Routes Configured.");
+	println!("Binding listener...");
 
     // Create a TCP listener that binds to the given address (addr)
     let listener = TcpListener::bind(addr).await.unwrap(); 
     // Serve the application using Axum's `serve` function, logging any errors
+
+	println!();
+	info!("Ready!");
 	println!();
     println!("    Server (Axum) listening @ http://{}", addr);
 	println!();
