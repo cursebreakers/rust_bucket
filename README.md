@@ -8,13 +8,13 @@ v0.1.0
 
 ## Getting started
 
-*If needed, install Rust first*
+*If needed, install Rust*
 
 `curl https://sh.rustup.rs -sSf | sh`
 
-### 1. Clone the repo:
+### 1. Fork the repo:
 
-`git clone https://github.com/cursebreakers/rust_bucket.git`
+`gh repo fork https://github.com/cursebreakers/rust_bucket.git --clone`
 
 ### 2. Add files to the bucket folder:
 
