@@ -28,9 +28,9 @@ v0.1.0
 
 `cargo run`
 
-Your bucket will be locally accessible via [http://localhost:1111/index](http://0.0.0.0:1111/index). It can then be accessed by any device connected to your local network at whatever the host device's local IP is. 
+Your bucket will be accessible at [http://localhost:1111/index](http://localhost:1111/index). It can also be accessed by any device connected to your local network at whatever the host device's local IP is. The server console logs should provide you with an address on startup.
 
-Use crtl+c to quit serving.
+Use **crtl+c** to quit serving.
 
 *If you wish to put your bucket up on the world wide web, see the "Hosting your Bucket" section.*
 
@@ -121,7 +121,7 @@ The main inspiration behind this project is to provide a simple yet powerful way
 
 # WORKING/NEXT:
 
-This is the planning section. These features are (99% likely) not yet implemented. Please [let me know](mailto:hello@cursebreakers.net) if you would like to request a feature.
+This is the planning section. These features are (99% likely) not yet implemented, nor may they ever be. Please [let me know](mailto:hello@cursebreakers.net) if you would like to request a feature.
 
 **Share & Download Links**
 - Share link opens device's share options or panel to copy link, etc
