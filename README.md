@@ -6,7 +6,7 @@ v0.1.0
 
 ---
 
-## Get started
+## Getting started
 
 *If needed, install Rust first*
 
@@ -39,23 +39,22 @@ Use **crtl+c** to quit serving.
 Extra pointers:
 - Add a .env file with PORT variable to control port number
 - Edit the index.html and style.css to control the appearance of your bucket.
-- use curl or wget to download your files from a bucket directly in your terminal
+- use curl or wget to download files from a bucket directly in your terminal
 
 ---
 
-## Hosting your Bucket
+## Hosting your bucket
 
 There are numerous ways to deploy buckets for various use-cases, such as a simple file server, database, repository or a CDN. The following are merely a few of them.
 
-**Link to "hosting with github and cloudflare workers"**
+*NOTE: I am not being paid to endorse these platforms.*
 
-**Alternative Link to Railway**
+*(Links coming soon)*
+- **Link to "hosting with github and cloudflare workers"**
+- **Alternative Link to Railway**
+- **Alternative Link to "exposing my host with ngrok"**
 
-**Alternative Link to "exposing my host with ngrok"**
-
-*NOTE: I am not being paid to endorse any of these platforms.*
-
-If you find a method that is not listed here, feel free to [let me know](mailto:hello@cursebreakers.net) and I may add it.
+If you find a solid method not listed here, feel free to [let me know](mailto:hello@cursebreakers.net) and I may add it.
 
 ---
 
@@ -82,8 +81,8 @@ Download a file using the link on the bucket page.
 You can customize the appearance of your bucket by editing the index.html and style.css templates in the main bucket folder.
 
 NOTE: 
-- If you wreck your templates beyond repair, delete your index.html and one will be regenerated when you refresh your bucket index.
-- You can redownload the templates from the [parent repo](https://github.com/cursebreakers/rust_bucket/tree/main/bucket), or use them as a reference to hopefully find your way back to style sanity.
+- If you wreck your templates beyond repair, you may delete your index.html and index.css. New ones will be generated when the index is requested next.
+- You can redownload the templates from the [parent repo](https://github.com/cursebreakers/rust_bucket/tree/main/bucket), or use them as a reference to hopefully find your way back to stylish sanity.
 
 ## Hacking your bucket
 
@@ -107,11 +106,16 @@ The make_style.rs file (not ready yet) will control stylesheet generation, allow
 
 ### The bucket folder
 
+- The bucket contents are scanned and mapped by make_index.rs each time the index is requested from the server. 
+- This process injects and overrides any content within the bucket elements in the index.html file, and displays the file tree in the server console.
+
+- Port assignment defaults to 1111. You may create a .env file with the PORT variable to override this default.
+
 - The bucket folder will contain an **index.html** and a linked **style.css** file by default. These templates are manipulated and regenerated (if necessary) by their make files in the **src** folder.
 
 - Cloning a bucket clones that particular bucket's layout and styles, and may also contain files or folders from the person it was cloned from, unless those files were held back by the bucket owner (like with git ignore). 
 
-- For example, if you cloned your bucket directly from me recently, you will have a *hello* folder and a *gifs* folder as well as a sweet rusty sunset stylesheet (feel free to edit/delete or keep these as you wish. Consider it a welcome gift).
+- For example, if you cloned your bucket directly from me, you would have a *hello* folder and a *gifs* folder as well as a sweet rusty sunset stylesheet (feel free to edit/delete or keep these as you wish. Consider it a welcome gift).
 
 ### Philosophy
 
@@ -140,7 +144,7 @@ Program variables and controls: (command flags or runtime menu options?)
 - man pages
 
 **Recursion Depth Control**
-- Create a variable to limit or expand the recursion depth of the bucket index
+- Create variable(s) to limit or expand the recursion depth of the bucket index
 
 **User Safety & Security**
 - What aspects of a bucket and its data or implementations are especially sensitive or insecure?
