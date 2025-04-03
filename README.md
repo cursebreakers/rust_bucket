@@ -129,6 +129,10 @@ The main inspiration behind this project is to provide a simple yet powerful way
 
 This is the planning section. These features are (99% likely) not yet implemented, nor may they ever be. Please [let me know](mailto:hello@cursebreakers.net) if you would like to request a feature.
 
+**Safety, Bugs & Exceptions**
+- File and data type/struct sizes in memory and storage need to be explicitly managed to prevent bugs, leaks, overflows and overloading of media/hardware.
+- Verbose logging for server activity and file functions.
+
 **Share & Download Links**
 - Share link opens device's share options or panel to copy link, etc
 - Download entire folders
@@ -138,12 +142,12 @@ This is the planning section. These features are (99% likely) not yet implemente
   - how does this relate/differ to git? Could some form of git implementation handle this better?
 
 **Robust Console Controls**
-
-Program variables and controls: (command flags or runtime menu options?)
-- env config:
-  - set PORT
-  - set recursion depth
-- man pages
+- Program variables and controls: (command flags or runtime menu options?)
+  - env config:
+    - set PORT
+    - set recursion depth
+  - man pages
+  - loud/quiet server logs
 
 **Recursion Depth Control**
 - Create variable(s) to limit or expand the recursion depth of the bucket index
